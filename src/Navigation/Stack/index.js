@@ -9,7 +9,7 @@ import SplashScreen from '../../Screens/Splash';
 import {useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
-export default function App() {
+export default function App() { 
   const reducerData = useSelector(state => state);
   const {auth} = reducerData;
   const [userData, setUserData] = React.useState({});

@@ -4,7 +4,7 @@ import {
   getDataByBody,
   getRequest,
   postRequest,
-  putRequest,
+  putRequest,   
 } from '../../App/fetch';
 
 const initialState = {
@@ -26,6 +26,7 @@ export const UserLogin = createAsyncThunk('UserLogin', async body => {
 
 const AuthReducer = createSlice({
   name: 'authReducer',
+  // initialState,
   initialState,
   reducers: {
     userDataFromAsyncStorage: (state, action) => {

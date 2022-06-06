@@ -1,16 +1,31 @@
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {TouchableOpacity} from 'react-native';
 import PageContainer from '../../Components/Layout/PageContainer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {removeUserDataFromAsyncStorage} from '../../Store/Reducers/AuthReducer';
-import {useDispatch} from 'react-redux';
+import { UserData, userInfoDataFromAsyncStorage } from '../../Store/Reducers/NewReducer';
+import {useDispatch, useSelector} from 'react-redux';
+import { getRequest } from '../../App/fetch';
 
 const DemoScreen = props => {
   const dispatch = useDispatch();
+  const reducerData = useSelector(state => state);
+  
+  // const {auth} = reducerData;
+  // const [userData, setUserData] = React.useState({});
+  // console.log('userdata reducer Data',reducerData?.new?.userData)
+
+  useEffect(() => {
+    // console.log('New api data get');
+    dispatch(UserData())
+  }, [])
+  
+
   const removeToken = async value => {
     try {
       await AsyncStorage.removeItem('token').then(() => {
+        // console.log(`User Data ${reducerData}`);
         dispatch(removeUserDataFromAsyncStorage());
       });
     } catch (e) {

@@ -11,6 +11,9 @@ import {getHeaderTitle} from '@react-navigation/elements';
 import CustomHeader from '../../Components/CustomHeader';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import DemoScreen from '../../Screens/DemoScreen';
+import DataScreen from '../../Screens/DemoScreen/dataScreen';
+import { YahooData } from '../../Store/Reducers/YahooReducer';
+import NewScreen from '../../Screens/DemoScreen/NewScreen';
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigation(props) {
@@ -41,10 +44,10 @@ export default function TabNavigation(props) {
         {props => <DemoScreen {...props} />}
       </Tab.Screen>
       <Tab.Screen name="Screen2">
-        {props => <DemoScreen {...props} />}
+        {props => <DataScreen {...props} />}
       </Tab.Screen>
       <Tab.Screen name="Screen3">
-        {props => <DemoScreen {...props} />}
+        {props => <NewScreen {...props} />}
       </Tab.Screen>
     </Tab.Navigator>
   );

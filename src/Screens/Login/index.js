@@ -18,6 +18,7 @@ const Login = props => {
   const setToken = async value => {
     try {
       const jsonValue = JSON.stringify(value);
+      console.log(`user data value ${jsonValue}`)
       const v = {
         userId: '3123-123-123123-3145',
       };
